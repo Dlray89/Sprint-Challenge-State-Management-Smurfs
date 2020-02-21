@@ -17,15 +17,15 @@ const handleData = e => {
   return (
 <body className="smurfs">
 <div className="App">
-  <h1>
-    Welcome To Le pays Maudit </h1>
+  <h1 className="welcome" style={{ Background: "red", color: "white", border: "solid 2px #86a8e7", width: "30%", margin: "2% auto", padding: "3%"}}>
+    Welcome To Le Pays Maudit </h1>
 
   {props.isFetchingData ? (
     <div> Currently traveling to Le pays Madit! Hold Please!</div>
   ) : (
-    <button onClick={handleData}>Go to Smurf Village</button> )}
+    <button style={{ padding: "1%", borderRadius: "30px",border: "solid 2px #86a8e", background: "linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)"}} onClick={handleData}>Go to Smurf Village</button> )}
   <Smurfs />
-  <PostForm />
+   <PostForm />
 </div>
 </body>
   );

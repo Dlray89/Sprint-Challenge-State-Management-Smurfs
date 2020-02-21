@@ -35,6 +35,7 @@ submitHandler =e=> {
     return (
       <div>
         <form onSubmit={this.submitHandler}>
+        <label style={{ background: "linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)", width: "70%", borderRadius:"20px"}}>Add your Smurf</label>
           <div>
             <input placeholder="id" type="text" name="id" value={id} onChange={this.changeHandler} />
           </div>
