@@ -1,16 +1,42 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
+import { connect } from "react-redux";
+import { getData } from "../actions";
+import Smurfs from "./smurfList";
+import PostForm from "./postForm";
+import axios from "axios"
+
+
+function App(props) {
+  
+const handleData = e => {
+  e.preventDefault();
+  props.getData();
 }
 
-export default App;
+  return (
+<body className="smurfs">
+<div className="App">
+  <h1>
+    Welcome To Le pays Maudit </h1>
+
+  {props.isFetchingData ? (
+    <div> Currently traveling to Le pays Madit! Hold Please!</div>
+  ) : (
+    <button onClick={handleData}>Go to Smurf Village</button> )}
+  <Smurfs />
+  <PostForm />
+</div>
+</body>
+  );
+}
+
+const mapStateToProps = state => {
+  return {
+    isFetchingData: state.isFetchingData
+  }
+}
+export default connect(
+  mapStateToProps,
+  { getData }
+)(App);
